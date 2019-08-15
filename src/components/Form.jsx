@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
 function Form() {
-
     const [name, setName] = useState();
     const [count, setCount] = useState(12);
+    const [isOpen, setIsOpen] = useState(true)
 
 
     // Similar a componentDidMount e componentDidUpdate:
@@ -16,6 +16,15 @@ function Form() {
         setName({[e.target.id]: e.target.value})
     }
 
+    function handleOpen (e) {
+        if (isOpen === true) {
+            setIsOpen(false)
+        } else {
+            setIsOpen(true)
+        }
+        console.log(isOpen)
+    }
+
     function handleSubmit(e) {
         e.preventDefault()
         console.log(name)
@@ -23,6 +32,7 @@ function Form() {
 
     return (
         <div>
+            <h1>Simple State</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">Name</label>
                 <input type="text" id="name" onChange={handleChange}></input>
@@ -34,6 +44,11 @@ function Form() {
             <button onClick={() => setCount(count + 1)}>
                 Click me
             </button>
+
+            <hr/>
+
+            { isOpen ? <div>Aberto</div> : null }
+            <button onClick={handleOpen}>OPEN</button>
         </div>
     )
 }
