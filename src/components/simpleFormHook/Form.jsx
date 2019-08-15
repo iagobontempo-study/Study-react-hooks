@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Container } from './styles'
+import { Container } from '../styles'
 
 function Form() {
     const [name, setName] = useState();
