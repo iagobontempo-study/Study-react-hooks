@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import { Container } from './styles'
+
 function Form() {
     const [name, setName] = useState();
     const [count, setCount] = useState(12);
@@ -31,8 +33,9 @@ function Form() {
     }
 
     return (
-        <div>
+        <Container>
             <h1>Simple State</h1>
+            <hr/>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">Name</label>
                 <input type="text" id="name" onChange={handleChange}></input>
@@ -49,7 +52,7 @@ function Form() {
 
             { isOpen ? <div>Aberto</div> : null }
             <button onClick={handleOpen}>OPEN</button>
-        </div>
+        </Container>
     )
 }
 
